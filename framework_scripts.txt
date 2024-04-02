@@ -1,0 +1,10 @@
+
+
+
+xcodebuild archive -scheme TodoData -destination="iOS" -archivePath /tmp/xcf/ios.xcarchive -derivedDataPath /tmp/iphoneos -sdk iphoneos SKIP_INSTALL=NO 
+
+
+xcodebuild archive -scheme TodoData -destination="iOS Simulator" -archivePath /tmp/xcf/iossimulator.xcarchive -derivedDataPath /tmp/iphoneos -sdk iphonesimulator SKIP_INSTALL=NO
+
+
+xcodebuild -create-xcframework -framework /tmp/xcf/ios.xcarchive/Products/Library/Frameworks/TodoData.framework -framework /tmp/xcf/iossimulator.xcarchive/Products/Library/Frameworks/TodoData.framework -output TodoData.xcframework
